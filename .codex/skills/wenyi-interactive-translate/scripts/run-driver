@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+WENYI_SKILL_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+WENYI_REPO_ROOT=$(CDPATH= cd -- "$WENYI_SKILL_DIR/../../.." && pwd)
+WENYI_DRIVER="$WENYI_SKILL_DIR/scripts/interactive_translate.py"
+
+if [ -x "$WENYI_REPO_ROOT/.venv/bin/python" ]; then
+    exec "$WENYI_REPO_ROOT/.venv/bin/python" "$WENYI_DRIVER" "$@"
+fi
+
+exec uv run --project "$WENYI_REPO_ROOT" python "$WENYI_DRIVER" "$@"
