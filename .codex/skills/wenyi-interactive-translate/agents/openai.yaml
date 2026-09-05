@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wenyi Interactive Translate"
+  short_description: "Use Codex to translate long-form books with Wenyi state"
+  default_prompt: "Use $wenyi-interactive-translate to translate this book interactively and preserve resumable progress."
